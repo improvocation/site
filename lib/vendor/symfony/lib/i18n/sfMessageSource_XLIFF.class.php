@@ -49,7 +49,11 @@ class sfMessageSource_XLIFF extends sfMessageSource_File
    * @return array|false An array of messages or false if there was a problem loading the file.
    */
   public function &loadData($filename)
-  {
+  {      
+      if (sfConfig::get('sf_logging_enabled'))
+      {
+        sfContext::getInstance()->getEventDispatcher()->notify(new sfEvent($this, 'application.log', array(sprintf('Loading catalogue from file "%s"',  $filename ))));
+      }
     libxml_use_internal_errors(true);
     if (!$xml = simplexml_load_file($filename))
     {

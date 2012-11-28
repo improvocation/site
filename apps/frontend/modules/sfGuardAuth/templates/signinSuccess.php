@@ -39,7 +39,7 @@
 		
 		<ul class="a-form-row submit clearfix">
     	<li>
-				<input type="submit" class="a-btn big a-submit" value="<?php echo __('Sign In', null, 'apostrophe') ?>" />
+				<input type="submit" class="a-btn big a-submit" value="<?php echo __('Sign In') ?>" />
 			</li>
 		</ul>
 		

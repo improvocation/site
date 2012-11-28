@@ -4,12 +4,14 @@
         href="http://www.youtube.com/embed/1IpHPSo-pl8">
         <img 
             alt="Voir la vidéo du Spot Promotionnel d'Impro-Vocation" 
-            src="img/voir_spiv_s.png"
+            src="/img/voir_spiv_s.png"
         />
     </a>
     
     <script type="text/javascript">
         $(document).ready(function() {
+            $('#main section.events .aEvent .event-item:last').addClass('last');
+            
             $("#voir_spiv").fancybox({
                 openEffect    : 'none',
                 closeEffect	: 'none',
@@ -37,6 +39,7 @@
                     <span class="list_events_location">Match Externe</span>
                 </li>
             </ul  -->
+            <?php // the first three events (configure in UI the number) ?>
             <?php a_slot('blogpost', 'aEvent',array('maxImages'=>0,'compact'=>true)); ?>
             <div class="add"><?php a_slot('events-text-add', 'aRichText') ?></div>
             <?php //include_component('a', 'standardArea', array('name' => 'next-events', 'width' => 200, 'toolbar' => 'Sidebar')) ?>

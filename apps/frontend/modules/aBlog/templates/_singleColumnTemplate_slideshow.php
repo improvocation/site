@@ -28,7 +28,7 @@
   		<?php echo $aBlogPost->getTextForArea('blog-body', $options['excerptLength']) ?>
   	</div>
     <div class="a-blog-read-more">
-      <?php echo link_to('Read More', 'a_blog_post', $aBlogPost, array('class' => 'a-blog-more')) ?>
+      <?php echo link_to(__('Read more'), 'a_blog_post', $aBlogPost, array('class' => 'a-blog-more')) ?>
     </div>
   </div>
   

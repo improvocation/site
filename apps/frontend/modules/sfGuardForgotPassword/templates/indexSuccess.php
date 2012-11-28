@@ -28,12 +28,12 @@
 			</div>
   		<?php echo $form['email_address']->renderError() ?>	
 			<div class="help">
-	  		<?php echo __('We can email you instructions to reset your password.', null, 'sf_guard') ?>
+	  		<?php echo __('We can email you instructions to reset your password.') ?>
 			</div>
 		</div>
 		
 		<div class="a-form-row submit clearfix">
-			<input type="submit" class="a-btn big a-submit" name="change" value="<?php echo __('Reset Password', null, 'apostrophe') ?>" />
+			<input type="submit" class="a-btn big a-submit" name="change" value="<?php echo __('Reset Password') ?>" />
 		</div>
 	
 	</form>

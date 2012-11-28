@@ -5,7 +5,7 @@
   $options = isset($options) ? $sf_data->getRaw('options') : null;
 ?>
 
-<?php if( !isset($options['compact']) || !$options['compact']): ?>  
+<?php if( !$options['compact']): ?>  
     <h3 class="a-blog-item-title"><?php echo link_to($aEvent['title'], 'a_event_post', $aEvent) ?></h3>
     
     	<?php if ($options['aBlogMeta']): ?>

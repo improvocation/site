@@ -229,8 +229,8 @@ td { vertical-align: top; }
 @colTextAnthracite: #3a3a3a;
 @fatTitleFont: "Inika", Serif;
 @thinTitleFont: "Inika", Serif;
-@menuFont: "Port Lligat Sans", Sans;
-@textFont: "Open Sans", Sans;
+@menuFont: "Port Lligat Sans", Arial, Sans;
+@textFont: "Open Sans", Arial, Sans;
 @widthPage: 870px;
 
 .centerElement{
@@ -308,9 +308,9 @@ header{
             &.first{display:none;} 
             
             // put the rest nicely around the third
-            &.second{position:absolute;top:10px;left:1em}
-            &.next-last{position:absolute;top:30px;left:12em}
-            &.last{position:absolute;top:25px;left:22em}
+            &.second{position:absolute;top:5px;left:14px}
+            &.next-last{position:absolute;top:30px;left:170px}
+            &.last{position:absolute;top:25px;left:340px}
             
             a{
                 color:@colTextClear;
@@ -459,7 +459,8 @@ header{
             a{
                 color:#535014;
             }
-            /*&.a-current-page{
+            &.a-current-page{
+                display:block;
                 font-size:140%;
                 a{
                     font-weight:bold;
@@ -467,7 +468,7 @@ header{
                     font-family:@fatTitleFont;
                     text-decoration:none;    
                 }
-            }*/
+            }
         }
     }
     
@@ -539,6 +540,11 @@ header{
         .add{
             font-size:90%;
         }
+        
+        
+        a{
+            color:inherit;        
+        }
     }
     
     section.events{
@@ -558,9 +564,11 @@ header{
             .transform(rotate(6deg));
         }   
         
+        
         .add{
             text-align:left;
             padding-right:9em;
+            padding-left:0.5em;
         }
         
         .aEvent{
@@ -580,7 +588,15 @@ header{
                     font-size:90%;
                     padding-left:1.1em;
                 }
+                
+                padding-right:0em;
+                
+                &.last {
+                   // padding-right:5em;
+                }
             }
+            
+        
         }
     }
     
@@ -593,9 +609,12 @@ header{
         padding:18px 20px 45px 12px;
         width:330px;
         height:196px; 
+        color:@colTextClear;
         
         h2{
-            color:@colTextClear; 
+            .a-slot-content-container{
+                color:@colTextClear; 
+            }
             * {
                 color:@colTextAnthracite; // apostrophe admin tools
             }
@@ -645,6 +664,16 @@ header{
         }
     }
     
+    .a-area-sidebar{
+        h3{
+            margin:0;    
+        }
+        
+        .a-slot{
+            padding:0.2em 0.5em 0.5em 0.5em;    
+        }
+    }
+    
 }
 
 body.a-home #main{ 
@@ -660,18 +689,24 @@ footer{
     text-align:center;
 }
 
-.a-admin .a-content, .a-admin-content {
+.a-admin .a-content,
+.a-admin-content, 
+.a-blog .a-content, 
+.a-blog-admin .a-content,
+.a-media .a-content
+{
     width: 600px;
 }
 
-.a-blog .a-content, .a-blog-admin .a-content {
-    width: 600px;
-}
-
+#ui-datepicker-div {
+    z-index: 9999 !important;
+} 
 
 /* =======================
 ASANDBOX
 ========================== */
+
+
 
 
 // Subnavigation
@@ -1048,6 +1083,29 @@ ASANDBOX
 {
   padding: 4px;
 }
+
+
+
+/*********************
+overload asandbox
+**********************/
+
+.a-ui.a-admin-header {
+ background:transparent;   
+}
+
+.a-ui.a-subnav-wrapper,
+.a-signin.page {
+    margin-left:1em;/*
+ background-color:#f26247;   
+ border-color:#f7a295;
+ color: @colTextClear;*/
+ 
+ background-color:@colPageBackground;
+ border-color: rgb(220, 200, 140);
+ 
+}
+
 
 
 /* ==|== media queries ======================================================

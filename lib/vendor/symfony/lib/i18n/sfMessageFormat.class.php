@@ -180,6 +180,10 @@ class sfMessageFormat
    */
   protected function formatString($string, $args = array(), $catalogue = null)
   {
+      if (sfConfig::get('sf_logging_enabled'))
+      {
+        sfContext::getInstance()->getEventDispatcher()->notify(new sfEvent($this, 'application.log', array(sprintf('Translating "%s" using catalogue "%s"', $string, $catalogue ))));
+      }
     if (empty($args))
     {
       $args = array();

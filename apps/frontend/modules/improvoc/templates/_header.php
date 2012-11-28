@@ -30,7 +30,7 @@
     	*/?> 
     
     <div class="thumbs" id="#header_thumbs">
-        <img class="thumb1" src="thumbs/DSC_7173.jpg" />
-        <img class="thumb2" src="thumbs/DSC_7980.jpg" />
+        <img class="thumb1" src="/maquette/thumbs/DSC_7173.jpg" />
+        <img class="thumb2" src="/maquette/thumbs/DSC_7980.jpg" />
     </div>
   </header>
