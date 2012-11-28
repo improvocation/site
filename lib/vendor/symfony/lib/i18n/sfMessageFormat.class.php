@@ -182,7 +182,7 @@ class sfMessageFormat
   {
       if (sfConfig::get('sf_logging_enabled'))
       {
-        sfContext::getInstance()->getEventDispatcher()->notify(new sfEvent($this, 'application.log', array(sprintf('Translating "%s" using catalogue "%s"', $string, $catalogue ))));
+        sfContext::getInstance()->getEventDispatcher()->notify(new sfEvent($this, 'application.log', array(sprintf('Translating "%s" using catalogue "%s" in %s', $string, $catalogue,$this->source->getCulture() ))));
       }
     if (empty($args))
     {
