@@ -1213,27 +1213,75 @@
 <target>Français</target>
 </trans-unit>
 <!-- Added by Jehan -->
+
 <trans-unit id="1001">
 <source>Search Events</source>
 <target>Rechercher un évènement</target>
 </trans-unit>
+
 <trans-unit id="1002">
 <source>Today</source>
 <target>Aujourd'hui</target>
 </trans-unit>
+
 <trans-unit id="1003">
 <source>You are viewing all events</source>
 <target>Liste de tous les évènements</target>
 </trans-unit>
+
   <trans-unit id="1017">
     <source>Add to Outlook, iCal, etc.</source>
     <target>Outlook, iCal.</target>
   </trans-unit>
+  
   <trans-unit id="1018">
     <source>Add to Google Calendar</source>
     <target>Google Cal.</target>
   </trans-unit>
-</body>
+
+  
+  <trans-unit id="1019">
+    <source>You are viewing all %type%</source>
+    <target>Liste de tous les %type%.</target>
+  </trans-unit>
+
+  <trans-unit id="1020">
+    <source>events</source>
+    <target>évènements</target>
+  </trans-unit>
+
+  <trans-unit id="1021">
+    <source>You are viewing %count% %type% %filters%</source>
+    <target>Liste de %count% %type% %filters%</target>
+  </trans-unit>
+
+  <trans-unit id="1022">
+    <source>Browse by</source>
+    <target>Naviguer par</target>
+  </trans-unit>
+
+
+  <trans-unit id="1023">
+    <source>Day</source>
+    <target>Jour</target>
+  </trans-unit>
+  
+  <trans-unit id="1024">
+    <source>Month</source>
+    <target>Mois</target>
+  </trans-unit>
+
+  <trans-unit id="1025">
+    <source>Year</source>
+    <target>Année</target>
+  </trans-unit>
+
+
+  <trans-unit id="1025">
+    <source></source>
+    <target></target>
+  </trans-unit>
+
 </body>
 </file>
 </xliff>

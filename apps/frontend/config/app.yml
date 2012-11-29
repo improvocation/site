@@ -411,7 +411,8 @@ all:
     # jpeg_quality: 75 # default value is 75
 
   aEvents:
-    display_calendar: true
+    display_calendar: false
+    google_maps: false
 
     # Excerpts
     # In the index view of the blog plugin
@@ -462,7 +463,7 @@ all:
     # excerpts_show: true
     # excerpts_length: 50
 
-    link_author: true
+    link_author: false
     # Disqus Comments
     # Once you have a Disqus account, enable comments and put in your Disqus shortname
     # disqus_enabled: true

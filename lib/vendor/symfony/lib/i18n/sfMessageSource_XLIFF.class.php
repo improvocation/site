@@ -58,6 +58,14 @@ class sfMessageSource_XLIFF extends sfMessageSource_File
     if (!$xml = simplexml_load_file($filename))
     {
       $error = false;
+      
+        if (sfConfig::get('sf_logging_enabled'))
+        {
+            $errors = libxml_get_errors();
+            foreach ($errors as $error) {
+                sfContext::getInstance()->getEventDispatcher()->notify(new sfEvent($this, 'application.log', array(sprintf('Parsing "%s": error. [%s] at line %s ',  $filename,$error->message, $error->line ))));
+            }
+        }
 
       return $error;
     }
@@ -74,6 +82,11 @@ class sfMessageSource_XLIFF extends sfMessageSource_File
       $translations[$source][] = (string) $unit['id'];
       $translations[$source][] = (string) $unit->note;
     }
+
+      if (sfConfig::get('sf_logging_enabled'))
+      {
+        sfContext::getInstance()->getEventDispatcher()->notify(new sfEvent($this, 'application.log', array(sprintf('Loaded "%s" and found %s translations',  $filename, ($translations) ))));
+      }
 
     return $translations;
   }
