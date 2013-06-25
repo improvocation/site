@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="EN" target-language="fr" datatype="plaintext" original="messages" date="2012-11-29T15:17:01Z" product-name="messages">
+    <header/>
+    <body>
+      <trans-unit id="1">
+        <source>You are using IE6! That is just awful! Apostrophe does not support editing using Internet Explorer 6. Why don't you try upgrading? &lt;a href="http://www.getfirefox.com"&gt;Firefox&lt;/a&gt; &lt;a href="http://www.google.com/chrome"&gt;Chrome&lt;/a&gt; 	&lt;a href="http://www.apple.com/safari/download/"&gt;Safari&lt;/a&gt; &lt;a href="http://www.microsoft.com/windows/internet-explorer/worldwide-sites.aspx"&gt;IE8&lt;/a&gt;</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Forgot your password?</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>We can email you instructions to reset your password.</source>
+        <target>Nous pouvons vous envoyer un mail pour réinitialiser votre mot de passe.</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Reset Password</source>
+        <target>Réinitialiser</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>Tags Admin</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>Edit Tag</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>New Tag</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>Tag</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>Blog</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="10">
+        <source>aEvent</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="11">
+        <source>Pages</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="12">
+        <source>Media</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="13">
+        <source>Events</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="14">
+        <source>Sign In</source>
+        <target>Se Connecter</target>
+      </trans-unit>
+      <trans-unit id="15">
+        <source>Want to register?</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="16">
+        <source>Read more</source>
+        <target>Lire la suite</target>
+      </trans-unit>
+      <trans-unit id="16">
+        <source>Read More</source>
+        <target>Lire la suite</target>
+      </trans-unit>
+      <trans-unit id="17">
+        <source>Add to Outlook, iCal, etc.</source>
+        <target>Ajouter à Outlook, iCal, etc.</target>
+      </trans-unit>
+      <trans-unit id="18">
+        <source>Add to Google Calendar</source>
+        <target>Ajouter à Google Calendar</target>
+      </trans-unit>
+      <trans-unit id="19">
+        <source>...</source>
+        <target>...</target>
+      </trans-unit>
+      <trans-unit id="20">
+        <source>Username or email</source>
+        <target>Nom d'utilisateur ou adresse e-mail</target>
+      </trans-unit>
+      <trans-unit id="21">
+        <source>Password</source>
+        <target>Mot de passe</target>
+      </trans-unit>
+
+    </body>
+  </file>
+</xliff>
