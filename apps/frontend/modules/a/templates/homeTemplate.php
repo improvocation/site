@@ -40,7 +40,9 @@
 	'duration' => 500,
 	'itemTemplate' => 'homeBannerItem',
 	'allowed_variants' => array('autoplay','normal'),
-)) */ ?>
+)) */ 
+
+?>
 
 <?php // The a/standardArea component is an easy way to pull in the usual list of great content slots. ?>
 <?php // You don't have to limit yourself to it, see a_area and a_slot in the documentation ?>

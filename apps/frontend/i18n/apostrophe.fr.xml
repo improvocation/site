@@ -1219,6 +1219,11 @@
 <target>Rechercher un évènement</target>
 </trans-unit>
 
+<trans-unit id="1001">
+<source>Search Posts</source>
+<target>Rechercher une actu</target>
+</trans-unit>
+
 <trans-unit id="1002">
 <source>Today</source>
 <target>Aujourd'hui</target>
@@ -1249,6 +1254,13 @@
     <source>events</source>
     <target>évènements</target>
   </trans-unit>
+  
+  
+  <trans-unit id="1025">
+    <source>event</source>
+    <target>évènement</target>
+  </trans-unit>
+
 
   <trans-unit id="1021">
     <source>You are viewing %count% %type% %filters%</source>
@@ -1276,11 +1288,87 @@
     <target>Année</target>
   </trans-unit>
 
+      <trans-unit id="2022">
+        <source>Jan</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="2023">
+        <source>Fev</source>
+        <target>Fév</target>
+      </trans-unit>
+      <trans-unit id="2024">
+        <source>Mar</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="2025">
+        <source>Apr</source>
+        <target>Avr</target>
+      </trans-unit>
+      <trans-unit id="2026">
+        <source>May</source>
+        <target>Mai</target>
+      </trans-unit>
+      <trans-unit id="2027">
+        <source>Jun</source>
+        <target>Juin</target>
+      </trans-unit>
+      <trans-unit id="2028">
+        <source>Jul</source>
+        <target>Juil</target>
+      </trans-unit>
+      <trans-unit id="2029">
+        <source>Aug</source>
+        <target>Aou</target>
+      </trans-unit>
+      <trans-unit id="2030">
+        <source>Sep</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="2031">
+        <source>Oct</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="2032">
+        <source>Nov</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="2033">
+        <source>Dec</source>
+        <target>Déc</target>
+      </trans-unit>
+
+
+  <trans-unit id="1025">
+    <source>New Event</source>
+    <target>Nouv. Évènement</target>
+  </trans-unit>
+
+
+  <trans-unit id="1025">
+    <source>for %date%</source>
+    <target>pour %date%</target>
+  </trans-unit>
+
+  <trans-unit id="1025">
+    <source>Add Events Heading</source>
+    <target>Ajouter un en-tête</target>
+  </trans-unit>
 
   <trans-unit id="1025">
     <source></source>
     <target></target>
   </trans-unit>
+
+  <trans-unit id="1025">
+    <source></source>
+    <target></target>
+  </trans-unit>
+
+  <trans-unit id="1025">
+    <source></source>
+    <target></target>
+  </trans-unit>
+
 
 </body>
 </file>

@@ -351,13 +351,11 @@ header{
         img.thumb2{.thumb;top:70px;left:212px;}
     }
     
-    a.forum{
+    a.forum, a.fb{
         z-index:110;
         font-size:100%;
         font-weight:bold;
         position:absolute;
-        right:10px;
-        top:10px;
         text-decoration:none;
         border-radius:3px;
         padding:1px 3px 1px 3px;
@@ -369,6 +367,17 @@ header{
             color:@colHeaderBackground;
             background:@colTextAnthracite;
         }
+    }
+    
+    a.forum{
+        right:10px;
+        top:10px;
+    }
+    
+    a.fb{
+        right:10px;
+        top:30px;
+        
     }
     
     h1.site_title{
@@ -458,7 +467,7 @@ header{
     }
     
     ul.a-nav-breadcrumb{
-        padding:0em 0.5em 0.5em 3em;
+        padding:0.5em 0.5em 0.5em 3em;
         
         li.a-nav-item{
             display:inline;
@@ -476,6 +485,23 @@ header{
                     font-family:@fatTitleFont;
                     text-decoration:none;    
                 }
+            }
+        }
+    }
+    
+    #fbia{
+        margin-top:0.4em;
+        display:inline-block;
+        width:152px;
+        height:76px;
+        background:url("/img/logo_fbia_grey_s.png") no-repeat;
+        
+        img{
+            opacity:0;
+            .transition(opacity 0.2s ease-in);
+            &:hover{
+                .transition(opacity 0.2s ease-out);
+                opacity:1;
             }
         }
     }
@@ -620,7 +646,7 @@ header{
         color:@colTextClear;
         
         h2{
-            .a-slot-content-container{
+            .a-slot-content{
                 color:@colTextClear; 
             }
             * {
@@ -684,8 +710,26 @@ header{
     
 }
 
-body.a-home #main{ 
+body.a-home{
+    #main{ 
         padding-top:350px;
+        
+        .a-area-sidebar{
+            font-size:0.8em;
+            
+            hr{
+                border-color:@colBorderBlocks;    
+                margin-bottom:0;padding-bottom:0;
+            }
+            
+            .a-slot{
+                p{
+                    padding:0.4em 0 0.5em 0;
+                    margin:0;
+                }
+            }
+        }
+    }
 }
 
 footer{
@@ -705,6 +749,21 @@ footer{
 {
     width: 600px;
 }
+
+
+.a-blog-more{
+ font-size:0.8em;   
+}
+
+body.a-home .a-content{
+    margin:2em 0 0 0;
+    
+    
+    .a-area-body .a-slot{
+        margin-left:2em;    
+    }
+}
+
 
 #ui-datepicker-div {
     z-index: 9999 !important;
@@ -1125,7 +1184,7 @@ hr.a-hr{
     margin-top:0;
 }
 
-.a-blog-item{
+body.aEvent .a-blog-item, body.aBlog .a-blog-item, body.a-home .a-content .a-blog-item{
         
     margin-bottom:2em;
     
@@ -1141,15 +1200,19 @@ hr.a-hr{
     
 }
 
-.a-blog-heading{
+body.aEvent .a-blog-heading{
        /*background-color:@colPageBackground;    
         border: 1px solid @colBorderBlocks;*/
         *{
             font-weight: normal;
-        }
+        } 
+        
+        opacity:0.6;
+        
+        margin-bottom:3em;
 }
 
-.a-blog-item.event {
+body.aEvent.index .a-blog-item.event {
 
        // background-color: rgba(255,238,176,0.4);
 
@@ -1160,11 +1223,17 @@ hr.a-hr{
 
     .a-blog-item-content{
         font-size:0.9em;
+        width:60%;
+        float:right;
+        
+        p{
+         margin-top:0;   
+        }
     }
     
     .a-blog-item-meta{    
-        border: 1px solid @colTextAnthracite;
-        padding:0.4em;
+        border-right: 1px solid @colTextAnthracite;
+        padding:0.4em 2em 0.4em 0.4em;
         //border-radius:5px;
         width:15em;
         margin:0;
@@ -1191,6 +1260,39 @@ hr.a-hr{
             margin-top:0;
         }
     }
+}
+
+body.aEvent.show .a-blog-item.event  {
+    .a-blog-item-meta{    
+        width:auto;
+        
+        border-left :1px solid;
+        
+        padding-left:1em;
+        
+        margin-top:0.5em;
+        
+        .a-blog-item-title{
+            font-size:1.1em;    
+        }
+        
+        .post-date{
+            .a-blog-item-start-day{
+                font-size:1.8em;
+                font-family:@thinTitleFont;
+                color: @colTextAnthracite;
+                display:block;
+                margin-bottom:5px;
+            }
+        }
+        
+        .post-extra{
+            opacity:0.5; 
+            margin-top:3px;
+            margin-left:-3px;
+        }
+    }
+    
 }
 
 .a-content{

@@ -1,6 +1,8 @@
 cache/*
 log/*
+web/adminwiki/*
 web/uploads/*
+web/files/*
 config/databases.yml
 config/propel.ini
 data/sql/*

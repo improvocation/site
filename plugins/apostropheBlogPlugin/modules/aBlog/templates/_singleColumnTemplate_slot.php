@@ -30,7 +30,7 @@
       <?php echo aHtml::simplify($aBlogPost->getRichTextForArea('blog-body', $options['excerptLength']), array('allowedTags' => '<a><em><strong>'))  ?>
   	</div>
     <div class="a-blog-read-more">
-      <?php echo link_to('Read More', 'a_blog_post', $aBlogPost, array('class' => 'a-blog-more')) ?>
+      <?php echo link_to(__('Read More'), 'a_blog_post', $aBlogPost, array('class' => 'a-blog-more')) ?>
     </div>
   </div>
   

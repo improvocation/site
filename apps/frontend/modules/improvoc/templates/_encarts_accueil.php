@@ -29,16 +29,6 @@
     <section class="events" >
         <div class="text">
             <h2><?php a_slot('events-title', 'aRawHTML') ?></h2>
-            <!--ul id="derniers_matchs" class="list_events">
-                <li>Match contre la Selection Nationale
-                    <span class="list_events_date">30/10/2012</span>
-                    <span class="list_events_location">Dupréel</span>
-                </li>
-                <li>ULB - IHECS (match inter-unif)
-                    <span class="list_events_date">25/11/2012</span>
-                    <span class="list_events_location">Match Externe</span>
-                </li>
-            </ul  -->
             <?php // the first three events (configure in UI the number) ?>
             <?php a_slot('blogpost', 'aEvent',array('maxImages'=>0,'compact'=>true)); ?>
             <div class="add"><?php a_slot('events-text-add', 'aRichText') ?></div>

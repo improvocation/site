@@ -20,7 +20,7 @@
         <?php echo link_to(aString::firstLine($aEvent['location']), url_for('http://maps.google.com/maps?' . http_build_query(array('q' => preg_replace('/\s+/', ' ', $aEvent['location'])))), array('class' => 'a-link', )) ?>
 		  <?php else: ?>
         <span class="post-location-name">
-          <?php echo link_to(htmlentities(truncate_text( html_entity_decode(aString::firstLine($aEvent['location'])))),'/nos-matchs-spectacles/salles') ?>
+          <?php echo link_to(aString::firstLine($aEvent['location']),'/nous-contacter/lieux-de-spectacles') ?>
         </span>
       <?php endif ?>
 		</li>
