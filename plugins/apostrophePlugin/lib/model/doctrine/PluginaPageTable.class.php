@@ -1328,6 +1328,8 @@ class PluginaPageTable extends Doctrine_Table
     $whereClauses[] = $where;
     $query .= "WHERE " . implode(' AND ', $whereClauses);
     $query .= " ORDER BY p.lft";
+    
+    $query = aMysql::replaceTableNames($query); // added by jbr
     $resultSet = $pdo->query($query);
     // Turn it into an actual array rather than some iterable almost-array thing
     $results = array();

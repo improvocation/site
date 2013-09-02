@@ -22,6 +22,7 @@ class aMysql
   protected $conn;
   protected $commandsRun;
   protected $rowsAffected;
+  protected $doctrine_connection;
   
   /**
    * Constructs a new aMysql object, connected to the specified PDO handle if
@@ -32,8 +33,8 @@ class aMysql
   {
     if (!$dbh)
     {
-      $connection = Doctrine_Manager::connection();
-      $this->conn = $connection->getDbh();
+      $this->doctrine_connection = Doctrine_Manager::connection();
+      $this->conn = $this->doctrine_connection->getDbh();
     }
     else
     {
@@ -123,6 +124,9 @@ class aMysql
       }
     }
     
+    //$s1 = $s;
+    $s = aMysql::replaceTableNames($s,$this->doctrine_connection);
+    
     $statement = $pdo->prepare($s);
 
     // PDO has brain damage and can't figure out when to bind things as literals with
@@ -147,7 +151,7 @@ class aMysql
       $this->rowsAffected = $statement->rowCount();
     }
     catch (Exception $e)
-    {
+    {// coming from " . $s1 . "
       throw new Exception("PDO exception on query: " . $s . " arguments: " . json_encode($params) . " bound arguments: " . json_encode($nparams) . "\n\n" . $e);
     }
     $result = true;
@@ -160,6 +164,43 @@ class aMysql
       // Seriously PDO, you need to relax
     }
     return $result;
+  }
+  
+  public static function formatTableName($conn,$table){
+    if(is_object($conn) && method_exists($conn,'getAttribute') )
+        $format = $conn->getAttribute(Doctrine_Core::ATTR_TBLNAME_FORMAT);
+    else 
+        $format = "sitev3_%s";
+
+    return sprintf($format, str_replace(sprintf($format, null), null, $table));;
+  }
+
+  public static function replaceTableNames($query,$conn=null)
+  {
+    if(null === $conn){
+        $conn = Doctrine_Manager::connection();
+        throw new Exception("Conn is null, so we made this: ".print_r($conn,1));
+    }
+        
+    $fail = false;
+    //~ $jbr = "[jbr-query1:$query]           <br/>\n";
+    $query = preg_replace_callback(
+        '/([ `])(a_[^ `]+)/',                                                                       
+        function($matches){
+            //global $jbr, $fail;
+            global $conn;
+            $elem = aMysql::formatTableName($conn,$matches[2]);
+            //~ if(strlen($elem) < strlen($matches[2]) )
+                //~ $fail = true;
+            //~ $jbr += "[jbr-match:{$matches[2]}|$elem]           <br/>\n";
+            return $matches[1].$elem;
+        }, 
+        $query);
+        
+    //~ $jbr .= "[jbr-query2:$query]           <br/>\n";
+    //~ if($fail)
+        //~ throw new Exception($jbr);
+    return $query;
   }
 
   /**

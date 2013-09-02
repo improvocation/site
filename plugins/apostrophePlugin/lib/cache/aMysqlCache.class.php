@@ -27,6 +27,9 @@ class aMysqlCache extends sfCache
 {
   protected $sql = null;
   
+  protected $tblname = "a_cache_item";
+  protected $real_tblname = "a_cache_item";
+  
   /**
    * Initializes this aMysqlCache instance.
    *
@@ -51,6 +54,7 @@ class aMysqlCache extends sfCache
     if (isset($options['doctrineConnection']))
     {
       $this->sql = new aMysql($options['doctrineConnection']->getDbh());
+      //$this->real_tblname = $options['doctrineConnection']->formatter->getTableName($this->tblname);
     }
     elseif (isset($options['pdoConnection']))
     {
@@ -60,9 +64,12 @@ class aMysqlCache extends sfCache
     {
       $this->sql = new aMysql();
     }
-
+      
+    //echo "[jbr:{$this->real_tblname}]";
     parent::initialize($options);
   }
+
+    
 
   /**
    * @see sfCache
@@ -77,8 +84,9 @@ class aMysqlCache extends sfCache
    */
   public function get($key, $default = null)
   {
+    //echo "[jbr:{$this->real_tblname}]"; 
     $key = $this->getOption('prefix') . $key;
-    $value = $this->sql->queryOneScalar("SELECT value FROM a_cache_item WHERE k = :key AND timeout > :time", array("key" => $key, "time" => time()));
+    $value = $this->sql->queryOneScalar("SELECT value FROM ".$this->real_tblname." WHERE k = :key AND timeout > :time", array("key" => $key, "time" => time()));
     return null === $value ? $default : $value;
   }
 
@@ -88,7 +96,7 @@ class aMysqlCache extends sfCache
   public function has($key)
   {
     $key = $this->getOption('prefix') . $key;
-    return !!$this->sql->queryOneScalar("SELECT COUNT(*) FROM a_cache_item WHERE k = :key AND timeout > :time", array("key" => $key, "time" => time()));
+    return !!$this->sql->queryOneScalar("SELECT COUNT(*) FROM ".$this->real_tblname." WHERE k = :key AND timeout > :time", array("key" => $key, "time" => time()));
   }
 
   /**
@@ -103,7 +111,7 @@ class aMysqlCache extends sfCache
       $this->clean(sfCache::OLD);
     }
 
-    $this->sql->query('INSERT INTO a_cache_item (k, value, timeout, last_mod) VALUES (:key, :value, :timeout, :last_mod) ON DUPLICATE KEY UPDATE k = :key, value = :value, timeout = :timeout, last_mod = :last_mod', array('key' => $key, 'value' => $value, 'timeout' => time() + $this->getLifetime($lifetime), 'last_mod' => time()));
+    $this->sql->query('INSERT INTO '.$this->real_tblname.' (k, value, timeout, last_mod) VALUES (:key, :value, :timeout, :last_mod) ON DUPLICATE KEY UPDATE k = :key, value = :value, timeout = :timeout, last_mod = :last_mod', array('key' => $key, 'value' => $value, 'timeout' => time() + $this->getLifetime($lifetime), 'last_mod' => time()));
     return !!$this->sql->getRowsAffected();
   }
 
@@ -114,7 +122,7 @@ class aMysqlCache extends sfCache
   {
     $key = $this->getOption('prefix') . $key;
     
-    $this->sql->query('DELETE FROM a_cache_item WHERE k = :key', array('key' => $key));
+    $this->sql->query('DELETE FROM '.$this->real_tblname.' WHERE k = :key', array('key' => $key));
     return !!$this->sql->getRowsAffected();
   }
   
@@ -152,7 +160,7 @@ class aMysqlCache extends sfCache
   public function removePattern($pattern)
   {
     $pattern = $this->getOption('prefix') . $pattern;
-    $this->sql->query('DELETE FROM a_cache_item WHERE k REGEXP :pattern', array('pattern' => self::patternToRegexp($pattern)));
+    $this->sql->query('DELETE FROM '.$this->real_tblname.' WHERE k REGEXP :pattern', array('pattern' => self::patternToRegexp($pattern)));
     return !!$this->sql->getRowsAffected();
   }
 
@@ -164,7 +172,7 @@ class aMysqlCache extends sfCache
     // Even clean() should respect the prefix
     // Don't forget ^
     // Don't add gratuitous trailing .*$, it just makes it slower 
-    $this->sql->query('DELETE FROM a_cache_item WHERE k REGEXP :pattern' . (sfCache::OLD == $mode ? ' AND timeout < :time ' : ''), array('pattern' => '^' . preg_quote($this->getOption('prefix'), '/'), 'time' => time()));
+    $this->sql->query('DELETE FROM '.$this->real_tblname.' WHERE k REGEXP :pattern' . (sfCache::OLD == $mode ? ' AND timeout < :time ' : ''), array('pattern' => '^' . preg_quote($this->getOption('prefix'), '/'), 'time' => time()));
     return !!$this->sql->getRowsAffected();
   }
 
@@ -174,7 +182,7 @@ class aMysqlCache extends sfCache
   public function getTimeout($key)
   {
     $key = $this->getOption('prefix') . $key;
-    return $this->dbh->queryOneScalar('SELECT timeout FROM a_cache_item WHERE k = :key AND timeout > :time', array('key' => $key, 'time' => time()));
+    return $this->dbh->queryOneScalar('SELECT timeout FROM '.$this->real_tblname.' WHERE k = :key AND timeout > :time', array('key' => $key, 'time' => time()));
   }
 
   /**
@@ -183,7 +191,7 @@ class aMysqlCache extends sfCache
   public function getLastModified($key)
   {
     $key = $this->getOption('prefix') . $key;
-    return $this->dbh->queryOneScalar('SELECT last_mod FROM a_cache_item WHERE k = :key AND timeout > :time', array('key' => $key, 'time' => time()));
+    return $this->dbh->queryOneScalar('SELECT last_mod FROM '.$this->real_tblname.' WHERE k = :key AND timeout > :time', array('key' => $key, 'time' => time()));
   }
 
   /**
@@ -205,7 +213,7 @@ class aMysqlCache extends sfCache
       $keysByPrefixedKey[$this->getOption('prefix') . $key] = $key;
     }
     $prefixedKeys = array_keys($keysByPrefixedKey);
-    $raw = $this->sql->queryScalar("SELECT value FROM a_cache_item WHERE k IN :keys AND timeout > :time", array("keys" => $prefixedKeys, "time" => time()));
+    $raw = $this->sql->queryScalar("SELECT value FROM ".$this->real_tblname." WHERE k IN :keys AND timeout > :time", array("keys" => $prefixedKeys, "time" => time()));
     $values = array();
     foreach ($raw as $row)
     {
