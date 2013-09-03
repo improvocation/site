@@ -1,3 +1,11 @@
+# required by OVH
+
+SetEnv PHP_VER 5_4
+SetEnv REGISTER_GLOBALS 0
+SetEnv MAGIC_QUOTES 0
+
+# initial file follows
+
 Options +FollowSymLinks +ExecCGI
 AddType text/x-component .htc 
 AddType text/javascript .jsgz
