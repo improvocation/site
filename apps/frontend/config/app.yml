@@ -105,8 +105,8 @@ all:
 
     ### Apostrophe Credit Message
     credit: true                      # Give Apostrophe Credit "Built with Apostrophe"
-
-
+    
+    
     ### Apostrophe Pagination
     pager_nb_links: 5                 # How many pages to show in the pager between the scrolling arrows (Media, Blog, Events)
 
@@ -565,7 +565,7 @@ prod:
     # If you don't have the gzip extension in PHP or you don't have Apache configured
     # to cope with gzipped files, just set this false. If you do have those things
     # consider setting it true for even better front end performance
-    minify_gzip: false
+    minify_gzip: true
     # To add google analytics to a site, uncomment the following lines and add your analytics tracking code
     # Make sure you are including the googleAnalytics partial in your layout.php
     # googleAnalytics:
@@ -577,7 +577,7 @@ prod:
     less_check_dependencies: false
 
     # Cache all pages for 5 minutes for logged-out users
-    # page_cache_enabled: true
+    page_cache_enabled: true
 
 # staging ought to be just like prod so we are not stunned and amazed
 # by the behavior of prod
@@ -585,16 +585,22 @@ prod:
 staging:
   a:
     # do_not_edit: true   # Quickly and easily display the 'Do Not Edit' message on staging sites after launch.
-    minify: true
+    minify: false
     # If you don't have the gzip extension in PHP or you don't have Apache configured
     # to cope with gzipped files, just set this false
     minify_gzip: false
     # We symfony cc on each deploy, so we don't have to waste time checking
     # modification times of @imported less files and playing with sfFileCache
-    less_check_dependencies: false
+    less_check_dependencies: true
     # Cache all pages for 5 minutes for logged-out users
     # page_cache_enabled: true
 
 dev:
   a:
     js_debug: true
+    minify: false
+    minify_gzip: false
+    less_check_dependencies: true
+    
+    
+    
