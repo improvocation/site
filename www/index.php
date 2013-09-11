@@ -8,4 +8,6 @@ require_once(dirname(__FILE__).'/../site/config/ProjectConfiguration.class.php')
 // we rsync exclude it to avoid overwriting each environment's controller. 
 
 $configuration = ProjectConfiguration::getApplicationConfiguration('frontend', 'prod', false);
+$configuration->setWebDir(sfConfig::get('sf_root_dir').DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'www');
+
 sfContext::createInstance($configuration)->dispatch();
